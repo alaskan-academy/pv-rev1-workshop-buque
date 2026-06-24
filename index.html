@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshop Buquê de Velas — Laura Martins</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --handify-blue: #6699F3;
+      --handify-green: #72CF92;
+      --handify-yellow: #FEC649;
+      --handify-black: #0F0F0F;
+      --handify-gray-dark: #2D2D2D;
+      --handify-off-white: #F5F5F0;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+      color: var(--handify-gray-dark);
+      background: #fff;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .brand-stripe { display: flex; height: 5px; width: 100%; }
+    .brand-stripe span { flex: 1; }
+    .brand-stripe span:nth-child(1) { background: var(--handify-blue); }
+    .brand-stripe span:nth-child(2) { background: var(--handify-green); }
+    .brand-stripe span:nth-child(3) { background: var(--handify-yellow); }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    .container--wide { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    .accent { color: var(--handify-blue); }
+    .accent-yellow { color: var(--handify-yellow); }
+    .accent-green { color: var(--handify-green); }
+
+    .section { padding: 80px 0; }
+    .section--dark { background: var(--handify-black); color: #fff; }
+    .section--muted { background: var(--handify-off-white); }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--handify-blue);
+      margin-bottom: 12px;
+    }
+    .section-label--light { color: var(--handify-green); }
+
+    .section-title { font-size: 36px; font-weight: 700; margin-bottom: 20px; line-height: 1.2; }
+    .section-title--large { font-size: 44px; }
+    .section-body { font-size: 17px; line-height: 1.7; color: #555; }
+    .section-body--dark { color: rgba(255,255,255,0.75); }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--handify-green);
+      color: var(--handify-black);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 18px 40px;
+      border-radius: 8px;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+      transition: all 0.2s ease-out;
+      line-height: 1.3;
+    }
+    .btn-primary:hover { background: #5bbf7f; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(114,207,146,0.35); }
+    .btn-primary--full { display: block; width: 100%; }
+    .btn-primary--large { font-size: 20px; padding: 22px 48px; }
+
+    /* NAV */
+    .nav { background: var(--handify-black); padding: 16px 0; }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav__logo { font-size: 22px; font-weight: 900; color: #fff; letter-spacing: -0.02em; }
+    .nav__logo span { color: var(--handify-blue); }
+    .nav__link {
+      font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 6px; transition: all 0.2s;
+    }
+    .nav__link:hover { color: #fff; border-color: rgba(255,255,255,0.5); }
+
+    /* HERO */
+    .hero { background: var(--handify-black); padding: 70px 0 80px; }
+    .hero__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .hero__tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(102,153,243,0.15); border: 1px solid rgba(102,153,243,0.3);
+      color: var(--handify-blue); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 24px;
+    }
+    .hero__title { font-size: 42px; font-weight: 900; color: #fff; line-height: 1.15; margin-bottom: 20px; }
+    .hero__sub { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.65; margin-bottom: 36px; }
+    .hero__proof { display: flex; align-items: center; gap: 16px; margin-top: 28px; }
+    .hero__proof-avatars { display: flex; }
+    .hero__proof-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--handify-blue); border: 2px solid var(--handify-black);
+      margin-left: -8px; display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: #fff; font-weight: 700;
+    }
+    .hero__proof-avatar:first-child { margin-left: 0; }
+    .hero__proof-text { font-size: 13px; color: rgba(255,255,255,0.6); }
+    .hero__proof-text strong { color: #fff; display: block; }
+    .hero__img-wrap {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      border-radius: 16px; aspect-ratio: 4/5; overflow: hidden;
+      border: 1px solid rgba(102,153,243,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.3); font-size: 13px; text-align: center; padding: 24px;
+    }
+    .hero__img-wrap img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
+
+    /* PROOF STRIP */
+    .proof-strip { background: var(--handify-blue); padding: 20px 0; }
+    .proof-strip__inner { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .proof-strip__item { display: flex; align-items: center; gap: 10px; color: #fff; font-size: 14px; font-weight: 600; }
+
+    /* STORY */
+    .story__quote {
+      font-size: 20px; font-style: italic; color: var(--handify-gray-dark); line-height: 1.7;
+      padding: 32px 40px; border-left: 4px solid var(--handify-blue);
+      background: var(--handify-off-white); border-radius: 0 12px 12px 0; margin: 32px 0;
+    }
+    .story__body p { font-size: 17px; line-height: 1.8; color: #555; margin-bottom: 20px; }
+    .story__body p:last-child { margin-bottom: 0; }
+
+    /* PROBLEM */
+    .problem-list { list-style: none; display: grid; gap: 16px; margin-top: 40px; }
+    .problem-list__item {
+      display: flex; align-items: flex-start; gap: 16px;
+      background: #fff; border: 1px solid #e8e8e4; border-radius: 12px; padding: 20px 24px;
+    }
+    .problem-list__icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .problem-list__text { font-size: 16px; line-height: 1.6; }
+    .problem-list__text strong { display: block; margin-bottom: 4px; font-weight: 700; }
+
+    /* SOLUTION */
+    .solution-highlight {
+      background: var(--handify-black); border-radius: 16px; padding: 48px 40px;
+      margin: 40px 0; display: flex; justify-content: center; align-items: center; gap: 48px; flex-wrap: wrap;
+    }
+    .solution-highlight__block { text-align: center; }
+    .solution-highlight__number { font-size: 56px; font-weight: 900; color: var(--handify-yellow); line-height: 1; }
+    .solution-highlight__label { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 6px; }
+    .solution-highlight__arrow { font-size: 36px; color: rgba(255,255,255,0.2); }
+
+    .solution-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+    .solution-card { background: var(--handify-off-white); border-radius: 12px; padding: 28px; text-align: center; }
+    .solution-card__icon { font-size: 32px; margin-bottom: 12px; }
+    .solution-card__title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .solution-card__text { font-size: 14px; color: #777; line-height: 1.6; }
+
+    /* BENEFITS */
+    .benefits-list { list-style: none; display: grid; gap: 16px; margin-top: 40px; }
+    .benefits-list__item { display: flex; align-items: flex-start; gap: 14px; font-size: 16px; line-height: 1.6; }
+    .benefits-list__check {
+      width: 24px; height: 24px; background: var(--handify-green); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px; font-size: 13px; color: var(--handify-black); font-weight: 700;
+    }
+
+    /* CURRICULUM */
+    .curriculum { display: grid; gap: 16px; margin-top: 40px; }
+    .curriculum__aula { background: #fff; border: 1px solid #e8e8e4; border-radius: 12px; overflow: hidden; }
+    .curriculum__header { display: flex; align-items: center; gap: 16px; padding: 20px 24px; }
+    .curriculum__number {
+      background: var(--handify-blue); color: #fff; font-weight: 900;
+      font-size: 12px; padding: 6px 12px; border-radius: 6px; flex-shrink: 0; letter-spacing: 0.05em;
+    }
+    .curriculum__title { font-size: 16px; font-weight: 700; }
+    .curriculum__subtitle { font-size: 12px; color: #999; margin-top: 2px; }
+    .curriculum__body { padding: 0 24px 20px 62px; font-size: 14px; color: #666; line-height: 1.7; }
+
+    /* CARROSSEL */
+    .carousel-wrap {
+      overflow: hidden;
+      margin: 32px -24px 0;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .carousel-track {
+      display: flex;
+      gap: 12px;
+      width: max-content;
+      animation: carousel-scroll 38s linear infinite;
+    }
+    .carousel-track img {
+      height: 280px;
+      width: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+      display: block;
+    }
+    @keyframes carousel-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @media (max-width: 768px) {
+      .carousel-track img { height: 240px; }
+    }
+
+    /* RECAP GRID */
+    .recap-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:32px; text-align:left; }
+    .recap-block { background:#fff; border-radius:12px; padding:24px; }
+    .recap-block__title { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--handify-blue); margin-bottom:14px; }
+    .recap-list { list-style:none; display:grid; gap:10px; }
+    .recap-list li { font-size:15px; color:var(--handify-gray-dark); display:flex; align-items:flex-start; gap:10px; line-height:1.5; }
+    .recap-list li::before { content:"✓"; color:var(--handify-green); font-weight:700; flex-shrink:0; }
+    @media (max-width:768px) { .recap-grid { grid-template-columns:1fr; } }
+
+    /* MOCKUP DO CURSO */
+    .img-mockup { display:block; width:340px; margin:0 auto 24px; border-radius:12px; }
+    @media (max-width: 768px) { .img-mockup { width:240px; } }
+
+    /* IMAGEM DE SEÇÃO */
+    .img-section { width:auto; max-width:560px; border-radius:16px; margin-top:32px; display:block; margin-left:auto; margin-right:auto; }
+    @media (max-width: 768px) { .img-section { width:100%; max-width:100%; } }
+
+    /* BUQUÊ GRID */
+    .buque-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
+    .buque-card { background: #fff; border-radius: 12px; padding: 20px; border: 1px solid #e8e8e4; display: flex; gap: 14px; align-items: flex-start; }
+    .buque-card__icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+    .buque-card__title { font-size: 15px; font-weight: 700; margin-bottom: 4px; color: var(--handify-gray-dark); }
+    .buque-card__text { font-size: 13px; color: #777; line-height: 1.55; }
+    @media (max-width: 768px) { .buque-grid { grid-template-columns: 1fr; } }
+
+    /* BONUS */
+    .bonus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+    .bonus-card {
+      background: #fff; border: 1px solid rgba(102,153,243,0.2);
+      border-radius: 12px; padding: 24px; display: flex; gap: 16px; align-items: flex-start;
+    }
+    .bonus-card__icon { font-size: 28px; flex-shrink: 0; }
+    .bonus-card__tag { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--handify-blue); margin-bottom: 4px; }
+    .bonus-card__title { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .bonus-card__text { font-size: 13px; color: #777; line-height: 1.6; }
+
+    /* TESTIMONIALS */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+    .testimonial-card { background: var(--handify-off-white); border-radius: 12px; overflow: hidden; }
+    .testimonial-card img { width: 100%; display: block; }
+    .testimonial-card__quote {
+      padding: 14px 16px;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--handify-gray-dark);
+      line-height: 1.55;
+      border-top: 2px solid var(--handify-green);
+    }
+
+    /* URGENCY */
+    .urgency { background: var(--handify-yellow); padding: 70px 0; text-align: center; }
+    .urgency__title { font-size: 34px; font-weight: 900; color: var(--handify-black); line-height: 1.2; margin-bottom: 16px; }
+    .urgency__sub { font-size: 18px; color: rgba(15,15,15,0.7); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .urgency .btn-primary { background: var(--handify-black); color: #fff; }
+    .urgency .btn-primary:hover { background: #333; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .urgency__timer { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 36px; }
+    .urgency__timer-block { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .urgency__timer-num {
+      background: var(--handify-black); color: #fff;
+      font-size: 48px; font-weight: 900; line-height: 1;
+      padding: 16px 22px; border-radius: 10px; min-width: 80px;
+      display: block; text-align: center; letter-spacing: -0.02em;
+    }
+    .urgency__timer-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(15,15,15,0.6); }
+    .urgency__timer-sep { font-size: 40px; font-weight: 900; color: var(--handify-black); margin-bottom: 18px; line-height: 1; }
+    @media (max-width: 768px) {
+      .urgency__timer-num { font-size: 36px; padding: 12px 16px; min-width: 64px; }
+      .urgency__timer-sep { font-size: 30px; }
+    }
+
+    /* AUTHORITY */
+    .authority-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .authority-stat { text-align: center; }
+    .authority-stat__number { font-size: 48px; font-weight: 900; color: var(--handify-blue); line-height: 1; }
+    .authority-stat__label { font-size: 14px; color: rgba(255,255,255,0.6); margin-top: 8px; }
+
+    /* OFFER */
+    .offer-box {
+      background: #fff; border: 2px solid var(--handify-blue); border-radius: 20px;
+      padding: 48px; margin: 40px 0; text-align: center;
+      box-shadow: 0 4px 32px rgba(102,153,243,0.12);
+    }
+    .offer-box__label { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #999; margin-bottom: 8px; }
+    .offer-box__price-old { font-size: 18px; color: #bbb; text-decoration: line-through; margin-bottom: 4px; }
+    .offer-box__price { font-size: 64px; font-weight: 900; color: var(--handify-black); line-height: 1; margin-bottom: 8px; }
+    .offer-box__price small { font-size: 24px; vertical-align: super; margin-right: 4px; font-weight: 700; }
+    .offer-box__price-note { font-size: 14px; color: #999; margin-bottom: 32px; }
+    .offer-box__includes { list-style: none; display: grid; gap: 10px; margin: 28px 0 36px; text-align: left; }
+    .offer-box__includes li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; }
+    .offer-box__includes li::before { content: "✓"; color: var(--handify-green); font-weight: 700; flex-shrink: 0; }
+    .offer-box__security { font-size: 13px; color: #999; margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+
+    /* GUARANTEE */
+    .guarantee {
+      display: flex; align-items: flex-start; gap: 32px;
+      background: var(--handify-off-white); border-radius: 16px; padding: 40px; margin: 40px 0;
+    }
+    .guarantee__badge {
+      width: 100px; height: 100px; background: var(--handify-green); border-radius: 50%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      flex-shrink: 0; text-align: center;
+    }
+    .guarantee__badge-number { font-size: 28px; font-weight: 900; color: var(--handify-black); line-height: 1; }
+    .guarantee__badge-text { font-size: 10px; font-weight: 700; color: var(--handify-black); text-transform: uppercase; letter-spacing: 0.05em; }
+    .guarantee__title { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+    .guarantee__text { font-size: 16px; color: #555; line-height: 1.7; }
+
+    /* ABOUT */
+    .about__inner { display: grid; grid-template-columns: 1fr 1.6fr; gap: 60px; align-items: center; }
+    .about__img-wrap {
+      aspect-ratio: 3/4; border-radius: 16px; overflow: hidden;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.3); font-size: 13px; text-align: center; padding: 24px;
+    }
+    .about__img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .about__name { font-size: 32px; font-weight: 900; color: #fff; margin-bottom: 8px; }
+    .about__role { font-size: 14px; color: var(--handify-green); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 24px; }
+    .about__text p { font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 16px; }
+    .about__text p:last-child { margin-bottom: 0; }
+
+    /* OBJECTIONS */
+    .objections-list { display: grid; gap: 24px; margin-top: 40px; }
+    .objection-card { border: 1px solid #e8e8e4; border-radius: 12px; overflow: hidden; }
+    .objection-card__q {
+      background: var(--handify-off-white); padding: 20px 24px;
+      font-size: 17px; font-weight: 700;
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .objection-card__q-icon {
+      width: 28px; height: 28px; background: var(--handify-blue); color: #fff;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-weight: 900; font-size: 16px;
+    }
+    .objection-card__a { padding: 20px 24px; font-size: 16px; color: #555; line-height: 1.7; }
+
+    /* FAQ */
+    .faq-list { display: grid; gap: 16px; margin-top: 40px; }
+    .faq-item { border: 1px solid #e8e8e4; border-radius: 12px; padding: 20px 24px; }
+    .faq-item__q { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+    .faq-item__a { font-size: 15px; color: #666; line-height: 1.7; }
+
+    /* SUPPORT */
+    .support-box {
+      background: #fff; border: 1px solid #e8e8e4; border-radius: 16px;
+      padding: 40px; text-align: center; margin-top: 40px;
+    }
+    .support-box__icon { font-size: 40px; margin-bottom: 16px; }
+    .support-box__title { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+    .support-box__text { font-size: 16px; color: #666; line-height: 1.9; }
+
+    /* LAST CALL */
+    .lastcall { background: var(--handify-black); padding: 80px 0; text-align: center; }
+    .lastcall__title { font-size: 40px; font-weight: 900; color: #fff; line-height: 1.2; margin-bottom: 20px; }
+    .lastcall__sub { font-size: 18px; color: rgba(255,255,255,0.65); margin-bottom: 48px; max-width: 580px; margin-left: auto; margin-right: auto; }
+    .lastcall__stack { display: inline-grid; gap: 12px; text-align: left; margin: 0 auto 40px; }
+    .lastcall__stack-item { display: flex; align-items: flex-start; gap: 10px; color: rgba(255,255,255,0.8); font-size: 15px; }
+    .lastcall__stack-check { color: var(--handify-green); font-weight: 700; flex-shrink: 0; }
+    .lastcall__price { font-size: 72px; font-weight: 900; color: var(--handify-yellow); line-height: 1; margin-bottom: 8px; }
+    .lastcall__price small { font-size: 28px; vertical-align: super; }
+    .lastcall__price-note { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 32px; }
+
+    /* FOOTER */
+    .footer { background: #000; padding: 32px 0 0; }
+    .footer__inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-bottom: 24px; }
+    .footer__logo { font-size: 18px; font-weight: 900; color: #fff; }
+    .footer__logo span { color: var(--handify-blue); }
+    .footer__links { display: flex; gap: 24px; }
+    .footer__links a { font-size: 12px; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer__links a:hover { color: rgba(255,255,255,0.7); }
+    .footer__copy {
+      font-size: 12px; color: rgba(255,255,255,0.3);
+      width: 100%; padding: 16px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer__copy small { display: block; margin-top: 6px; font-size: 11px; }
+
+    /* STICKY CTA */
+    .sticky-cta {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: var(--handify-black); border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 12px 24px; display: flex; align-items: center; justify-content: space-between;
+      z-index: 100; gap: 16px;
+      opacity: 0; pointer-events: none; transform: translateY(100%);
+      transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    }
+    .sticky-cta.visible {
+      opacity: 1; pointer-events: auto; transform: translateY(0);
+    }
+    .sticky-cta__text { color: rgba(255,255,255,0.7); font-size: 13px; }
+    .sticky-cta__text strong { color: #fff; display: block; font-size: 15px; }
+    .sticky-cta__btn {
+      background: var(--handify-green); color: var(--handify-black);
+      font-weight: 700; font-size: 14px; padding: 12px 24px;
+      border-radius: 8px; white-space: nowrap; transition: all 0.2s; flex-shrink: 0;
+    }
+    .sticky-cta__btn:hover { background: #5bbf7f; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .section { padding: 60px 0; }
+      .hero__inner { grid-template-columns: 1fr; }
+      .hero__title { font-size: 28px; }
+      .hero__img-wrap { display: none; }
+      .section-title { font-size: 26px; }
+      .solution-grid { grid-template-columns: 1fr; }
+      .bonus-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .authority-stats { grid-template-columns: 1fr; }
+      .about__inner { grid-template-columns: 1fr; }
+      .about__img-wrap { aspect-ratio: 16/9; }
+      .offer-box { padding: 32px 20px; }
+      .offer-box__price { font-size: 48px; }
+      .guarantee { flex-direction: column; align-items: center; text-align: center; }
+      .lastcall__title { font-size: 28px; }
+      .lastcall__price { font-size: 56px; }
+      .footer__inner { flex-direction: column; text-align: center; }
+      .footer__links { justify-content: center; }
+      .sticky-cta { display: none; }
+      .solution-highlight { gap: 24px; }
+      .solution-highlight__arrow { transform: rotate(90deg); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- BRAND STRIPE -->
+<div class="brand-stripe"><span></span><span></span><span></span></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container--wide">
+    <div class="nav__inner">
+      <div class="nav__logo">Handi<span>fy</span>™</div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== GANCHO ===== -->
+<section class="hero">
+  <div class="container--wide">
+    <div class="hero__inner">
+      <div>
+        <div class="hero__tag">🕯️ Workshop Buquê de Velas</div>
+        <h1 class="hero__title">
+          Como montar um buquê de velas do zero em <span class="accent">menos de 2 horas</span> — mesmo sem nunca ter feito artesanato
+        </h1>
+        <p class="hero__sub">
+          Laura Martins, professora de mais de <strong style="color:#fff">15 mil alunas</strong>, ensina o passo a passo completo pra você criar, vender e faturar de <strong style="color:var(--handify-yellow)">R$150 a R$270</strong> por buquê.
+        </p>
+        <div class="hero__proof">
+          <div class="hero__proof-avatars">
+            <div class="hero__proof-avatar">A</div>
+            <div class="hero__proof-avatar">M</div>
+            <div class="hero__proof-avatar">C</div>
+            <div class="hero__proof-avatar">R</div>
+          </div>
+          <div class="hero__proof-text">
+            <strong>+15.000 alunas</strong>
+            já aprenderam com Laura Martins
+          </div>
+        </div>
+      </div>
+      <div class="hero__img-wrap">
+        <img src="Fotos/img1 Workshop Buque de Velas.webp" alt="Buquê de velas">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF STRIP -->
+<div class="proof-strip">
+  <div class="container--wide">
+    <div class="proof-strip__inner">
+      <div class="proof-strip__item">✅ Acesso vitalício</div>
+      <div class="proof-strip__item">📄 Apostila incluso</div>
+      <div class="proof-strip__item">🧮 Calculadora de lucro</div>
+      <div class="proof-strip__item">🔒 7 dias de garantia</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HISTÓRIA PESSOAL ===== -->
+<!-- ===== POR QUE O BUQUÊ ===== -->
+<section class="section section--muted">
+  <div class="container">
+    <p class="section-label">O produto</p>
+    <h2 class="section-title">Por que o buquê de velas é um dos produtos mais <span class="accent">desejados</span> do artesanato</h2>
+
+    <img src="Fotos/img7 Workshop Buque de Velas.webp" alt="Buquê de velas" style="width:100%; border-radius:16px; margin-top:28px; margin-bottom:4px; display:block;">
+
+    <div class="buque-grid">
+      <div class="buque-card">
+        <div class="buque-card__icon">👁️</div>
+        <h3 class="buque-card__title">Para quem passa</h3>
+        <p class="buque-card__text">Parece presente de loja cara. Quem vê pergunta onde comprou antes de perguntar o preço.</p>
+      </div>
+      <div class="buque-card">
+        <div class="buque-card__icon">💰</div>
+        <h3 class="buque-card__title">Vale de R$150 a R$270 a peça</h3>
+        <p class="buque-card__text">Alto valor percebido. Você não precisa vender volume pra ter renda real.</p>
+      </div>
+      <div class="buque-card">
+        <div class="buque-card__icon">📅</div>
+        <h3 class="buque-card__title">Vende em datas que todo mundo já conhece</h3>
+        <p class="buque-card__text">Dia das Mães, Namorados, Natal. O cliente já está procurando — você só precisa estar com o produto pronto.</p>
+      </div>
+      <div class="buque-card">
+        <div class="buque-card__icon">🔁</div>
+        <h3 class="buque-card__title">Aprende uma vez, repete sempre</h3>
+        <p class="buque-card__text">Não depende de inspiração. Com o método certo vira rotina de produção.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== SOLUÇÃO E OPORTUNIDADE ===== -->
+<section class="section" style="background:#fff;">
+  <div class="container">
+    <p class="section-label">A solução</p>
+    <h2 class="section-title">O buquê de velas é um dos produtos artesanais com <span class="accent">maior valor percebido</span> do mercado</h2>
+    <p class="section-body">Quando bem feito, ele para as pessoas. Quem vê pergunta onde comprou. Parece presente de loja cara — e vende como um.</p>
+
+    <img src="Fotos/25.webp" alt="Buquê de velas" class="img-section">
+
+    <div class="solution-highlight">
+      <div class="solution-highlight__block">
+        <div class="solution-highlight__number">R$37</div>
+        <div class="solution-highlight__label">Investimento no workshop</div>
+      </div>
+      <div class="solution-highlight__arrow">→</div>
+      <div class="solution-highlight__block">
+        <div class="solution-highlight__number">R$270</div>
+        <div class="solution-highlight__label">Valor de venda por buquê</div>
+      </div>
+    </div>
+
+    <div class="solution-grid">
+      <div class="solution-card">
+        <div class="solution-card__icon">🎯</div>
+        <div class="solution-card__title">Produto de alta demanda sazonal</div>
+        <div class="solution-card__text">Dia das Mães, Dia dos Namorados, Natal — datas em que as pessoas pagam bem por presentes bonitos e diferentes.</div>
+      </div>
+      <div class="solution-card">
+        <div class="solution-card__icon">🔁</div>
+        <div class="solution-card__title">Uma técnica que você repete sempre</div>
+        <div class="solution-card__text">Com o método certo, cada buquê sai igual ao anterior. Você aprende uma vez e transforma isso em rotina produtiva.</div>
+      </div>
+      <div class="solution-card">
+        <div class="solution-card__icon">📦</div>
+        <div class="solution-card__title">Produto de varejo, não de atacado</div>
+        <div class="solution-card__text">Você não precisa vender volume. Um buquê bem precificado vale mais do que dez peças baratas.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENEFÍCIOS ===== -->
+<section class="section section--dark">
+  <div class="container">
+    <p class="section-label section-label--light">O que você vai dominar</p>
+    <h2 class="section-title" style="color:#fff;">Tudo que você aprende no <span class="accent">Workshop Buquê de Velas</span></h2>
+    <ul class="benefits-list">
+      <li class="benefits-list__item" style="color:rgba(255,255,255,0.85);">
+        <div class="benefits-list__check">✓</div>
+        Conhecer cada material — cera Ecomix, corante em pastilha, pavio, moldes de silicone e espuma floral — e por que cada um importa
+      </li>
+      <li class="benefits-list__item" style="color:rgba(255,255,255,0.85);">
+        <div class="benefits-list__check">✓</div>
+        Diferença entre corante lipossolúvel e hidrossolúvel — e qual usar em cada etapa sem desperdiçar cor
+      </li>
+      <li class="benefits-list__item" style="color:rgba(255,255,255,0.85);">
+        <div class="benefits-list__check">✓</div>
+        Escolher o pavio pelo diâmetro da flor — sem chute, sem tentativa e erro
+      </li>
+      <li class="benefits-list__item" style="color:rgba(255,255,255,0.85);">
+        <div class="benefits-list__check">✓</div>
+        Derreter a cera na temperatura certa e preparar o molde com secador para eliminar bolhas antes de começar
+      </li>
+      <li class="benefits-list__item" style="color:rgba(255,255,255,0.85);">
+        <div class="benefits-list__check">✓</div>
+        Dominar duas técnicas: o centro rosado da margarida e o degradê das pétalas da tulipa
+      </li>
+      <li class="benefits-list__item" style="color:rgba(255,255,255,0.85);">
+        <div class="benefits-list__check">✓</div>
+        Saber o momento exato de inserir o palito — nem cedo, nem tarde — pra fixar a estrutura sem comprometer a peça
+      </li>
+      <li class="benefits-list__item" style="color:rgba(255,255,255,0.85);">
+        <div class="benefits-list__check">✓</div>
+        Montar o buquê completo com seis flores, posicionamento de ponto focal e equilíbrio visual entre tulipas, margaridas e galhos secos
+      </li>
+      <li class="benefits-list__item" style="color:rgba(255,255,255,0.85);">
+        <div class="benefits-list__check">✓</div>
+        Precificar com a calculadora da Handify — contando matéria-prima, embalagem, hora de trabalho, gás, luz e perdas
+      </li>
+      <li class="benefits-list__item" style="color:rgba(255,255,255,0.85);">
+        <div class="benefits-list__check">✓</div>
+        Identificar e corrigir os 6 erros mais comuns: bolha, pavio torto, rachadura, cor errada, afundamento e pétala quebrando
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== O QUE VOCÊ RECEBE — CRONOGRAMA ===== -->
+<section class="section" style="background:#fff;">
+  <div class="container">
+    <p class="section-label">Conteúdo completo</p>
+    <h2 class="section-title">Aulas práticas com apostila de acompanhamento, do zero ao buquê pronto</h2>
+    <p class="section-body">Um caminho direto — sem enrolação, sem conteúdo genérico. Cada aula tem um objetivo claro e você sai com algo feito.</p>
+    <img src="Fotos/img2 Workshop Buque de Velas.webp" alt="Buquê de velas" style="width:100%; border-radius:16px; margin-top:32px; display:block;">
+    <div class="curriculum">
+      <div class="curriculum__aula">
+        <div class="curriculum__header">
+          <div class="curriculum__number">AULA 01</div>
+          <div>
+            <div class="curriculum__title">Materiais e Explicações</div>
+            <div class="curriculum__subtitle">Você entende antes de tocar em qualquer coisa</div>
+          </div>
+        </div>
+        <div class="curriculum__body">
+          Panela de alumínio, cera Ecomix, corante em pastilha, pavio, moldes de silicone, espuma floral e palitos. Você aprende a diferença entre corante lipossolúvel e hidrossolúvel, como escolher o pavio pelo diâmetro da flor e como calcular exatamente a quantidade de cera que vai precisar — sem achismo e sem desperdício.
+        </div>
+      </div>
+      <div class="curriculum__aula">
+        <div class="curriculum__header">
+          <div class="curriculum__number">AULA 02</div>
+          <div>
+            <div class="curriculum__title">Criação Prática das Velas</div>
+            <div class="curriculum__subtitle">Mão na massa com temperatura certa</div>
+          </div>
+        </div>
+        <div class="curriculum__body">
+          Você derrete a cera na temperatura correta, prepara os moldes com secador para evitar bolhas, insere o pavio sem torção e aprende duas técnicas: o centro rosado da margarida e o degradê das pétalas da tulipa. Aprende também o momento exato de inserir o palito e como completar o preenchimento para fixar a estrutura.
+        </div>
+      </div>
+      <div class="curriculum__aula">
+        <div class="curriculum__header">
+          <div class="curriculum__number">AULA 03</div>
+          <div>
+            <div class="curriculum__title">Montagem do Buquê na Prática</div>
+            <div class="curriculum__subtitle">Do caule ao acabamento final</div>
+          </div>
+        </div>
+        <div class="curriculum__body">
+          Você monta o buquê completo com as seis flores. Aprende a encaixar a espuma floral sem folga, posicionar a flor central como ponto focal e construir o arranjo alternando tulipas, margaridas e galhos secos — pra dar movimento, equilíbrio e aquele visual de presente especial.
+        </div>
+      </div>
+      <div class="curriculum__aula">
+        <div class="curriculum__header">
+          <div class="curriculum__number">AULA 04</div>
+          <div>
+            <div class="curriculum__title">Bloco de Negócios</div>
+            <div class="curriculum__subtitle">Precificação real — sem trabalhar de graça</div>
+          </div>
+        </div>
+        <div class="curriculum__body">
+          Você precifica o buquê usando a calculadora da Handify. Calcula custo real de matéria-prima, embalagem, hora de trabalho, gás, luz e perdas. Descobre que um buquê bem precificado vale entre R$150 e R$270 — e entende por que vender abaixo disso é trabalhar de graça. Aprende sobre sazonalidade e por que esse item deve ser vendido sempre no varejo.
+        </div>
+      </div>
+      <div class="curriculum__aula">
+        <div class="curriculum__header">
+          <div class="curriculum__number">AULA 05</div>
+          <div>
+            <div class="curriculum__title">Troubleshooting e Encerramento</div>
+            <div class="curriculum__subtitle">Soluções para os erros mais comuns</div>
+          </div>
+        </div>
+        <div class="curriculum__body">
+          Você aprende a identificar e resolver os erros mais comuns: bolhas na superfície, pavio torto, rachaduras internas, cor diferente do esperado, afundamento na base e pétalas quebrando na desmoldagem. Sai sabendo como salvar uma peça com problema — e como orientar a cliente sobre durabilidade do produto.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BÔNUS ===== -->
+<section class="section section--muted">
+  <div class="container">
+    <p class="section-label">Além das aulas</p>
+    <h2 class="section-title">Você também recebe esses <span class="accent">bônus incluídos</span></h2>
+    <p class="section-body">Tudo que você precisa pra produzir com confiança — hoje e nas próximas vezes.</p>
+    <img src="Fotos/img5 Workshop Buque de Velas.webp" alt="Apostila do Workshop Buquê de Velas" class="img-section">
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <div class="bonus-card__icon">📄</div>
+        <div>
+          <div class="bonus-card__tag">Bônus 01</div>
+          <div class="bonus-card__title">Apostila Completo Imprimível</div>
+          <div class="bonus-card__text">Todo o passo a passo organizado, pronto pra imprimir e consultar enquanto você produz — sem precisar pausar o vídeo.</div>
+        </div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-card__icon">📋</div>
+        <div>
+          <div class="bonus-card__tag">Bônus 02</div>
+          <div class="bonus-card__title">Lista de Materiais com Quantidades Exatas</div>
+          <div class="bonus-card__text">Tudo que você precisa comprar, com as quantidades certas pra não comprar a mais nem ficar sem material no meio do processo.</div>
+        </div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-card__icon">🌡️</div>
+        <div>
+          <div class="bonus-card__tag">Bônus 03</div>
+          <div class="bonus-card__title">Guia de Temperaturas por Etapa</div>
+          <div class="bonus-card__text">As temperaturas certas para derreter, tingir e desenfomar — sem erro, sem tentativa e erro e sem peça perdida.</div>
+        </div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-card__icon">🧮</div>
+        <div>
+          <div class="bonus-card__tag">Bônus 04</div>
+          <div class="bonus-card__title">Calculadora Automática de Preço e Lucro</div>
+          <div class="bonus-card__text">Coloca os seus custos e ela calcula o preço de venda certo, a margem de lucro e quanto você ganha por buquê vendido.</div>
+        </div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-card__icon">🏪</div>
+        <div>
+          <div class="bonus-card__tag">Bônus 05</div>
+          <div class="bonus-card__title">Lista de Fornecedores</div>
+          <div class="bonus-card__text">Os fornecedores que a Laura usa — pra você comprar com qualidade e no preço certo, sem ficar testando no escuro.</div>
+        </div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-card__icon">♾️</div>
+        <div>
+          <div class="bonus-card__tag">Bônus 06</div>
+          <div class="bonus-card__title">Acesso Vitalício</div>
+          <div class="bonus-card__text">Você acessa quando quiser, quantas vezes quiser. Voltou a produzir depois de um tempo? O material está te esperando.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEPOIMENTOS ===== -->
+<section class="section" style="background:#fff;">
+  <div class="container">
+    <p class="section-label">Quem já aprendeu</p>
+    <h2 class="section-title">O que as alunas estão dizendo</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <img src="Fotos/depoimentos/dep buque1.webp" alt="Depoimento aluna">
+        <div class="testimonial-card__quote">"Fiz ontem e já tenho gente perguntando se vendo."</div>
+      </div>
+      <div class="testimonial-card">
+        <img src="Fotos/depoimentos/dep buque2.webp" alt="Depoimento aluna">
+        <div class="testimonial-card__quote">"Já vendi 2 e já pagou o valor do workshop rapidinho."</div>
+      </div>
+      <div class="testimonial-card">
+        <img src="Fotos/depoimentos/dep buque3.webp" alt="Depoimento aluna">
+        <div class="testimonial-card__quote">"A aula das margaridas dá um acabamento bem delicado, simplesmente amei."</div>
+      </div>
+      <div class="testimonial-card">
+        <img src="Fotos/depoimentos/dep buque4.webp" alt="Depoimento aluna">
+        <div class="testimonial-card__quote">"Meu marido perguntou onde eu tinha comprado. Quando falei que eu fiz, ele não acreditou."</div>
+      </div>
+      <div class="testimonial-card">
+        <img src="Fotos/depoimentos/dep buque5.webp" alt="Depoimento aluna">
+        <div class="testimonial-card__quote">"Nunca tinha feito vela na vida. Me surpreendeu."</div>
+      </div>
+      <div class="testimonial-card">
+        <img src="Fotos/depoimentos/dep buque6.webp" alt="Depoimento aluna">
+        <div class="testimonial-card__quote">"Assisti de manhã e a tarde já tava montando meu primeiro buquê."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== URGÊNCIA ===== -->
+<section class="urgency">
+  <div class="container">
+    <h2 class="urgency__title">
+      O workshop está com desconto de lançamento.<br>
+      Quando esse lote fechar, o valor volta ao normal.
+    </h2>
+    <p class="urgency__sub">
+      Essa é a janela de entrada pelo menor preço que esse workshop vai ter. Depois que o lote fechar, não tem como garantir o mesmo valor.
+    </p>
+    <div class="urgency__timer">
+      <div class="urgency__timer-block">
+        <span class="urgency__timer-num" id="timer-h">03</span>
+        <span class="urgency__timer-label">horas</span>
+      </div>
+      <div class="urgency__timer-sep">:</div>
+      <div class="urgency__timer-block">
+        <span class="urgency__timer-num" id="timer-m">00</span>
+        <span class="urgency__timer-label">minutos</span>
+      </div>
+      <div class="urgency__timer-sep">:</div>
+      <div class="urgency__timer-block">
+        <span class="urgency__timer-num" id="timer-s">00</span>
+        <span class="urgency__timer-label">segundos</span>
+      </div>
+    </div>
+    <a href="#oferta" class="btn-primary btn-primary--large">
+      Quero garantir minha vaga →
+    </a>
+  </div>
+</section>
+
+<!-- ===== MICRO-AUTORIDADE ===== -->
+<section class="section section--dark">
+  <div class="container" style="text-align:center;">
+    <p class="section-label section-label--light">Por que confiar no método</p>
+    <h2 class="section-title" style="color:#fff;">Um método testado por <span class="accent">milhares de alunas</span></h2>
+    <p class="section-body section-body--dark" style="max-width:600px; margin:0 auto 48px;">
+      O Workshop Buquê de Velas não é teoria. É o mesmo método que Laura ensina há anos — refinado a cada turma, validado por resultados reais em todo o Brasil.
+    </p>
+    <div class="carousel-wrap" style="margin-bottom:0;">
+      <div class="carousel-track">
+        <img src="Fotos/26.webp" alt="Buquê de velas">
+        <img src="Fotos/27.webp" alt="Buquê de velas">
+        <img src="Fotos/28.webp" alt="Buquê de velas">
+        <img src="Fotos/29.webp" alt="Buquê de velas">
+        <img src="Fotos/30.webp" alt="Buquê de velas">
+        <img src="Fotos/31.webp" alt="Buquê de velas">
+        <img src="Fotos/32.webp" alt="Buquê de velas">
+        <img src="Fotos/33.webp" alt="Buquê de velas">
+        <img src="Fotos/34.webp" alt="Buquê de velas">
+        <img src="Fotos/35.webp" alt="Buquê de velas">
+        <img src="Fotos/26.webp" alt="Buquê de velas">
+        <img src="Fotos/27.webp" alt="Buquê de velas">
+        <img src="Fotos/28.webp" alt="Buquê de velas">
+        <img src="Fotos/29.webp" alt="Buquê de velas">
+        <img src="Fotos/30.webp" alt="Buquê de velas">
+        <img src="Fotos/31.webp" alt="Buquê de velas">
+        <img src="Fotos/32.webp" alt="Buquê de velas">
+        <img src="Fotos/33.webp" alt="Buquê de velas">
+        <img src="Fotos/34.webp" alt="Buquê de velas">
+        <img src="Fotos/35.webp" alt="Buquê de velas">
+      </div>
+    </div>
+
+    <div class="authority-stats">
+      <div class="authority-stat">
+        <div class="authority-stat__number">15.000+</div>
+        <div class="authority-stat__label">Alunas formadas pela Laura Martins</div>
+      </div>
+      <div class="authority-stat">
+        <div class="authority-stat__number">5</div>
+        <div class="authority-stat__label">Aulas com passo a passo completo e verificado</div>
+      </div>
+      <div class="authority-stat">
+        <div class="authority-stat__number">R$270</div>
+        <div class="authority-stat__label">Valor máximo de venda de um buquê bem precificado</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OFERTA (1º BOTÃO) ===== -->
+<section id="oferta" class="section section--muted">
+  <div class="container">
+    <p class="section-label" style="text-align:center;">Oferta completa</p>
+    <h2 class="section-title" style="text-align:center;">Tudo que você leva por apenas</h2>
+    <div class="offer-box">
+      <img src="Fotos/img6 Workshop Buque de Velas.webp" alt="Workshop Buquê de Velas" class="img-mockup">
+      <div class="offer-box__label">Workshop Buquê de Velas — Laura Martins</div>
+      <div class="offer-box__price"><small>12x R$</small>3,79</div>
+      <div class="offer-box__price-note">ou R$37 à vista · acesso imediato</div>
+      <ul class="offer-box__includes">
+        <li>5 aulas práticas do zero ao buquê completo</li>
+        <li>Apostila imprimível com todo o passo a passo</li>
+        <li>Lista de materiais com quantidades exatas</li>
+        <li>Guia de temperaturas por etapa</li>
+        <li>Calculadora automática de preço e lucro</li>
+        <li>Lista de fornecedores da Laura</li>
+        <li>Acesso vitalício — revisita quando quiser</li>
+        <li>7 dias de garantia incondicional</li>
+      </ul>
+      <a href="https://checkout.payt.com.br/3456c5db705cf614ee89ca8fdf6a4192" class="btn-primary btn-primary--full btn-primary--large">
+        Quero o workshop por 12x R$3,79 →
+      </a>
+      <div class="offer-box__security">🔒 Pagamento 100% seguro · Acesso imediato após confirmação</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GARANTIA ===== -->
+<section class="section" style="background:#fff;">
+  <div class="container">
+    <div class="guarantee">
+      <div class="guarantee__badge">
+        <div class="guarantee__badge-number">7</div>
+        <div class="guarantee__badge-text">dias de<br>garantia</div>
+      </div>
+      <div>
+        <h3 class="guarantee__title">Risco zero. Se não gostar, devolvemos tudo.</h3>
+        <p class="guarantee__text">
+          Você tem 7 dias a partir da compra para assistir às aulas e testar o método. Se por qualquer motivo não ficar satisfeita — sem julgamento, sem perguntas — basta pedir o reembolso e devolvemos 100% do seu dinheiro. O risco é nosso, não seu.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUEM É A ESPECIALISTA ===== -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="about__inner">
+      <div class="about__img-wrap">
+        <img src="Fotos/img8 Workshop Buque de Velas.webp" alt="Laura Martins">
+      </div>
+      <div>
+        <p class="section-label section-label--light">Conheça sua professora</p>
+        <h2 class="about__name">Laura Martins</h2>
+        <div class="about__role">Especialista em Velas Artesanais · +15.000 Alunas</div>
+        <div class="about__text">
+          <p>Laura Martins é artesã especializada em velas florais e professora com mais de 15.000 alunas formadas em todo o Brasil.</p>
+          <p>Começou sem experiência — e foi exatamente por isso que desenvolveu um método que qualquer pessoa consegue seguir: passo a passo com temperaturas exatas, quantidades precisas e sem espaço para achismo.</p>
+          <p>Hoje, ela ensina não só a técnica, mas como transformar a habilidade em renda real — com precificação correta, produto de alto valor percebido e estratégia para as datas certas do calendário.</p>
+          <p>O resultado das alunas é a prova de que o método funciona: buquês vendidos de R$150 a R$270, renda em datas sazonais e uma habilidade que podem repetir sempre que quiserem.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUEBRAR 3 OBJEÇÕES ===== -->
+<section class="section" style="background:#fff;">
+  <div class="container">
+    <h2 class="section-title">Ainda na dúvida?</h2>
+    <div class="objections-list">
+      <div class="objection-card">
+        <div class="objection-card__q">
+          <div class="objection-card__q-icon">?</div>
+          Nunca fiz artesanato na vida. Será que consigo?
+        </div>
+        <div class="objection-card__a">
+          Sim — e esse workshop foi feito exatamente pra você. Laura começa do zero: explica cada material, cada temperatura, cada etapa na ordem certa. Você não precisa ter feito nada antes. O método não depende de talento, depende de seguir o passo a passo. É por isso que funciona para 15.000 alunas com perfis completamente diferentes.
+        </div>
+      </div>
+      <div class="objection-card">
+        <div class="objection-card__q">
+          <div class="objection-card__q-icon">?</div>
+          E se eu gastar em material e não dar certo?
+        </div>
+        <div class="objection-card__a">
+          Esse é o medo mais comum — e o workshop resolve isso de frente. Você recebe a lista de materiais com quantidades exatas e as temperaturas certas para cada etapa, então não há espaço para erro por falta de informação. Além disso, a Aula 5 inteira é dedicada a troubleshooting: se algo não sair como esperado, você sabe exatamente o que aconteceu e como corrigir.
+        </div>
+      </div>
+      <div class="objection-card">
+        <div class="objection-card__q">
+          <div class="objection-card__q-icon">?</div>
+          12x R$3,79 parece muito barato. Será que o conteúdo é bom mesmo?
+        </div>
+        <div class="objection-card__a">
+          Entendemos a desconfiança — mas esse valor é uma decisão estratégica da Handify pra tornar o acesso possível para mais mulheres. O conteúdo é o mesmo método que Laura ensina há anos, com 15.000 alunas como prova. E você tem 7 dias pra testar: se não gostar, devolve tudo. O risco é zero.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REPETE A OFERTA ===== -->
+<section class="section section--muted">
+  <div class="container" style="text-align:center;">
+    <img src="Fotos/img6 Workshop Buque de Velas.webp" alt="Workshop Buquê de Velas" class="img-mockup">
+    <p class="section-label">Ainda está aqui?</p>
+    <h2 class="section-title">O workshop está te esperando por <span class="accent">12x R$3,79</span></h2>
+    <div class="recap-grid">
+      <div class="recap-block">
+        <div class="recap-block__title">Para aprender</div>
+        <ul class="recap-list">
+          <li>5 aulas práticas do zero ao buquê completo</li>
+          <li>Apostila completa pra acompanhar enquanto produz</li>
+          <li>Guia de temperaturas por etapa</li>
+          <li>Troubleshooting dos erros mais comuns</li>
+        </ul>
+      </div>
+      <div class="recap-block">
+        <div class="recap-block__title">Para produzir e vender</div>
+        <ul class="recap-list">
+          <li>Lista de materiais com quantidades exatas</li>
+          <li>Calculadora automática de preço e lucro</li>
+          <li>Lista de fornecedores da Laura</li>
+          <li>Acesso vitalício — revisita quando quiser</li>
+        </ul>
+      </div>
+    </div>
+    <a href="https://checkout.payt.com.br/3456c5db705cf614ee89ca8fdf6a4192" class="btn-primary btn-primary--large" style="margin-top:36px;">
+      Garantir meu acesso agora →
+    </a>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section" style="background:#fff;">
+  <div class="container">
+    <p class="section-label">Perguntas frequentes</p>
+    <h2 class="section-title">FAQ</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-item__q">Preciso de experiência prévia com artesanato?</div>
+        <div class="faq-item__a">Não. O workshop começa do zero e ensina cada detalhe do início ao fim. Se você nunca tocou em cera na vida, não tem problema.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-item__q">Quando recebo o acesso?</div>
+        <div class="faq-item__a">Imediatamente após a confirmação do pagamento. Você recebe um e-mail com os dados de acesso à plataforma da Handify.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-item__q">Os materiais são difíceis de encontrar?</div>
+        <div class="faq-item__a">Não. Você recebe a lista de fornecedores da Laura — onde comprar, com qualidade e preço justo. A maioria está disponível online e com envio para todo o Brasil.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-item__q">Posso assistir no celular?</div>
+        <div class="faq-item__a">Sim. O conteúdo é acessado pela plataforma da Handify, que funciona em qualquer dispositivo — celular, tablet ou computador.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-item__q">E se eu quiser só aprender, sem intenção de vender?</div>
+        <div class="faq-item__a">Perfeito — o workshop funciona pra você também. As aulas de técnica e montagem são independentes do bloco de negócios. Você aprende no ritmo que quiser.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-item__q">Quanto tempo tenho de acesso?</div>
+        <div class="faq-item__a">O acesso é vitalício. Você assiste agora e volta quantas vezes quiser — mesmo daqui a um ano, quando for produzir de novo.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-item__q">Como funciona a garantia?</div>
+        <div class="faq-item__a">Você tem 7 dias corridos a partir da compra. Se por qualquer motivo não gostar, basta entrar em contato com o suporte e devolvemos 100% do valor — sem perguntas.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SUPORTE ===== -->
+<section class="section section--muted">
+  <div class="container">
+    <p class="section-label" style="text-align:center;">Precisa de ajuda?</p>
+    <h2 class="section-title" style="text-align:center;">Fale com a nossa equipe</h2>
+    <div class="support-box">
+      <div class="support-box__icon">💬</div>
+      <div class="support-box__title">Estamos aqui pra te ajudar</div>
+      <div class="support-box__text">
+        Dúvida sobre o workshop, sobre o seu acesso ou sobre como funciona a plataforma?<br>
+        Entre em contato com o suporte da Handify:<br><br>
+        <strong>📧 <a href="mailto:contato@handify.com.br" style="color:var(--handify-blue);">contato@handify.com.br</a></strong><br><br>
+        <strong>📱 <a href="https://wa.me/message/SRLXSVJDGOQYC1?text=O%E2%81%AC%E2%81%AD%E2%81%AC%E2%81%AD%E2%81%A3%E2%81%A6%E2%81%A0%E2%80%AC%E2%80%AC%E2%81%A0%E2%81%A6%E2%81%A1%E2%81%AA%E2%80%AC%E2%81%A1%E2%81%A9%E2%81%A3%E2%81%A6%E2%80%AC%E2%81%A1%E2%81%A2%CD%8F%CD%8F%E2%80%AC%E2%80%AC%E2%81%A4%E2%80%AC%E2%80%AC%E2%81%AC%E2%81%AD%E2%81%AC%E2%81%ADl%C3%A1" target="_blank" style="color:var(--handify-blue);">Falar pelo WhatsApp</a></strong><br><br>
+        <em>Atendimento de segunda a sexta, das 9h às 18h.</em>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ÚLTIMA CHAMADA ===== -->
+<section class="lastcall">
+  <div class="container">
+    <h2 class="lastcall__title">
+      Você leu até aqui. Agora é a hora<br>
+      de <span class="accent-yellow">tomar uma decisão.</span>
+    </h2>
+    <p class="lastcall__sub">
+      O buquê de velas que pode virar renda nas próximas datas começa com o método certo. E o método certo está aqui.
+    </p>
+    <div style="display:flex; justify-content:center; margin-bottom:48px;">
+      <div class="lastcall__stack">
+        <div class="lastcall__stack-item"><span class="lastcall__stack-check">✓</span> 5 aulas práticas do zero ao buquê completo</div>
+        <div class="lastcall__stack-item"><span class="lastcall__stack-check">✓</span> Apostila imprimível + lista de materiais + guia de temperaturas</div>
+        <div class="lastcall__stack-item"><span class="lastcall__stack-check">✓</span> Calculadora de preço e lucro + lista de fornecedores</div>
+        <div class="lastcall__stack-item"><span class="lastcall__stack-check">✓</span> Acesso vitalício à plataforma Handify</div>
+        <div class="lastcall__stack-item"><span class="lastcall__stack-check">✓</span> 7 dias de garantia incondicional</div>
+      </div>
+    </div>
+    <img src="Fotos/img6 Workshop Buque de Velas.webp" alt="Workshop Buquê de Velas" class="img-mockup">
+    <div class="lastcall__price" style="font-size:48px;"><small style="font-size:22px; vertical-align:middle;">12x R$</small>3,79</div>
+    <div class="lastcall__price-note">ou R$37 à vista · acesso imediato · risco zero</div>
+    <a href="https://checkout.payt.com.br/3456c5db705cf614ee89ca8fdf6a4192" class="btn-primary btn-primary--large">
+      Quero o workshop agora →
+    </a>
+  </div>
+</section>
+
+<!-- ===== RODAPÉ ===== -->
+<footer class="footer">
+  <div class="brand-stripe"><span></span><span></span><span></span></div>
+  <div class="container--wide" style="padding-top:32px;">
+    <div class="footer__inner">
+      <div class="footer__logo">Handi<span>fy</span>™</div>
+      <div class="footer__copy">
+        © 2025 Handify™ — Plataforma de cursos de artesanato. Todos os direitos reservados.
+        <small>Este produto é digital. O acesso é liberado imediatamente após confirmação do pagamento. A garantia de 7 dias está amparada pelo Código de Defesa do Consumidor (art. 49).</small>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta">
+  <div class="sticky-cta__text">
+    <strong>Workshop Buquê de Velas</strong>
+    Laura Martins · 15.000+ alunas
+  </div>
+  <a href="https://checkout.payt.com.br/3456c5db705cf614ee89ca8fdf6a4192" class="sticky-cta__btn">
+    Garantir por 12x R$3,79 →
+  </a>
+</div>
+
+<script>
+  (function() {
+    var DURATION = 3 * 60 * 60 * 1000;
+    var end = Date.now() + DURATION;
+    function pad(n) { return n < 10 ? '0' + n : String(n); }
+    function tick() {
+      var remaining = end - Date.now();
+      if (remaining <= 0) { end = Date.now() + DURATION; remaining = DURATION; }
+      document.getElementById('timer-h').textContent = pad(Math.floor(remaining / 3600000));
+      document.getElementById('timer-m').textContent = pad(Math.floor((remaining % 3600000) / 60000));
+      document.getElementById('timer-s').textContent = pad(Math.floor((remaining % 60000) / 1000));
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  const oferta = document.getElementById('oferta');
+  const stickyCta = document.querySelector('.sticky-cta');
+  const observer = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
+      stickyCta.classList.add('visible');
+    }
+  }, { threshold: 0 });
+  observer.observe(oferta);
+</script>
+</body>
+</html>
