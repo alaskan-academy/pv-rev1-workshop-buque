@@ -337,12 +337,11 @@
       background: var(--handify-off-white); border-radius: 16px; padding: 40px; margin: 40px 0;
     }
     .guarantee__badge {
-      width: 100px; height: 100px; background: var(--handify-green); border-radius: 50%;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      flex-shrink: 0; text-align: center;
+      width: 120px; height: 120px; background: var(--handify-black); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; overflow: hidden; padding: 10px;
     }
-    .guarantee__badge-number { font-size: 28px; font-weight: 900; color: var(--handify-black); line-height: 1; }
-    .guarantee__badge-text { font-size: 10px; font-weight: 700; color: var(--handify-black); text-transform: uppercase; letter-spacing: 0.05em; }
+    .guarantee__badge img { width: 100%; height: 100%; object-fit: contain; display: block; }
     .guarantee__title { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
     .guarantee__text { font-size: 16px; color: #555; line-height: 1.7; }
 
@@ -925,8 +924,7 @@
   <div class="container">
     <div class="guarantee">
       <div class="guarantee__badge">
-        <div class="guarantee__badge-number">7</div>
-        <div class="guarantee__badge-text">dias de<br>garantia</div>
+        <img src="Fotos/garantia-7-dias.webp" alt="7 dias de garantia">
       </div>
       <div>
         <h3 class="guarantee__title">Risco zero. Se não gostar, devolvemos tudo.</h3>
