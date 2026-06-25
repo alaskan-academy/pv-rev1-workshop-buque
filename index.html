@@ -92,7 +92,10 @@
 
     /* HERO */
     .hero { background: var(--handify-black); padding: 70px 0 80px; }
-    .hero__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .hero__inner { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 32px 60px; align-items: start; }
+    .hero__text-top { grid-column: 1; grid-row: 1; }
+    .hero__proof { grid-column: 1; grid-row: 2; display: flex; align-items: center; gap: 16px; }
+    .hero__img-wrap { grid-column: 2; grid-row: 1 / 3; }
     .hero__tag {
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(102,153,243,0.15); border: 1px solid rgba(102,153,243,0.3);
@@ -101,8 +104,7 @@
       padding: 6px 14px; border-radius: 100px; margin-bottom: 24px;
     }
     .hero__title { font-size: 42px; font-weight: 900; color: #fff; line-height: 1.15; margin-bottom: 20px; }
-    .hero__sub { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.65; margin-bottom: 36px; }
-    .hero__proof { display: flex; align-items: center; gap: 16px; margin-top: 28px; }
+    .hero__sub { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.65; margin-bottom: 0; }
     .hero__proof-avatars { display: flex; }
     .hero__proof-avatar {
       width: 36px; height: 36px; border-radius: 50%;
@@ -414,9 +416,9 @@
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .section { padding: 60px 0; }
-      .hero__inner { grid-template-columns: 1fr; }
+      .hero__inner { display: flex; flex-direction: column; gap: 20px; }
       .hero__title { font-size: 28px; }
-      .hero__img-wrap { aspect-ratio: 4/3; }
+      .hero__img-wrap { aspect-ratio: 4/3; margin: 0 -24px; border-radius: 0; }
       .section-title { font-size: 26px; }
       .solution-grid { grid-template-columns: 1fr; }
       .bonus-grid { grid-template-columns: 1fr; }
@@ -455,7 +457,7 @@
 <section class="hero">
   <div class="container--wide">
     <div class="hero__inner">
-      <div>
+      <div class="hero__text-top">
         <div class="hero__tag">🕯️ Workshop Buquê de Velas</div>
         <h1 class="hero__title">
           Como montar um buquê de velas do zero em <span class="accent">menos de 2 horas</span> — mesmo sem nunca ter feito artesanato
@@ -463,21 +465,21 @@
         <p class="hero__sub">
           Laura Martins, professora de mais de <strong style="color:#fff">15 mil alunas</strong>, ensina o passo a passo completo pra você criar, vender e faturar de <strong style="color:var(--handify-yellow)">R$150 a R$270</strong> por buquê.
         </p>
-        <div class="hero__proof">
-          <div class="hero__proof-avatars">
-            <div class="hero__proof-avatar">A</div>
-            <div class="hero__proof-avatar">M</div>
-            <div class="hero__proof-avatar">C</div>
-            <div class="hero__proof-avatar">R</div>
-          </div>
-          <div class="hero__proof-text">
-            <strong>+15.000 alunas</strong>
-            já aprenderam com Laura Martins
-          </div>
-        </div>
       </div>
       <div class="hero__img-wrap">
         <img src="Fotos/img1 Workshop Buque de Velas.webp" alt="Buquê de velas">
+      </div>
+      <div class="hero__proof">
+        <div class="hero__proof-avatars">
+          <div class="hero__proof-avatar">A</div>
+          <div class="hero__proof-avatar">M</div>
+          <div class="hero__proof-avatar">C</div>
+          <div class="hero__proof-avatar">R</div>
+        </div>
+        <div class="hero__proof-text">
+          <strong>+15.000 alunas</strong>
+          já aprenderam com Laura Martins
+        </div>
       </div>
     </div>
   </div>
