@@ -164,6 +164,30 @@
     .solution-card__title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
     .solution-card__text { font-size: 14px; color: #777; line-height: 1.6; }
 
+    .varejo-card { background: var(--handify-off-white); border-radius: 16px; padding: 36px 40px; margin-top: 40px; }
+    .varejo-card__header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .varejo-card__icon { font-size: 28px; }
+    .varejo-card__title { font-size: 18px; font-weight: 800; color: var(--handify-black); }
+    .varejo-card__belief { font-size: 15px; color: #555; margin-bottom: 28px; line-height: 1.6; }
+    .varejo-contrast { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+    .varejo-contrast__col { border-radius: 12px; padding: 20px 24px; }
+    .varejo-contrast__col--bad { background: #fff; border: 1px solid #e8e8e4; }
+    .varejo-contrast__col--good { background: var(--handify-black); }
+    .varejo-contrast__label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px; }
+    .varejo-contrast__col--bad .varejo-contrast__label { color: #aaa; }
+    .varejo-contrast__col--good .varejo-contrast__label { color: var(--handify-green); }
+    .varejo-contrast__col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+    .varejo-contrast__col--bad ul li { font-size: 14px; color: #888; }
+    .varejo-contrast__col--good ul li { font-size: 14px; color: #fff; }
+    .varejo-contrast__col--good ul li:nth-child(3) { font-weight: 700; color: var(--handify-yellow); }
+    .varejo-contrast__col--bad ul li:nth-child(3) { font-weight: 700; }
+    .varejo-card__closing { font-size: 15px; font-weight: 600; color: var(--handify-black); line-height: 1.6; border-top: 2px solid var(--handify-green); padding-top: 20px; margin: 0; }
+    @media (max-width: 768px) {
+      .varejo-card { padding: 28px 20px; }
+      .varejo-contrast { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .varejo-contrast__col { padding: 16px; }
+    }
+
     /* BENEFITS */
     .benefits-list { list-style: none; display: grid; gap: 16px; margin-top: 40px; }
     .benefits-list__item { display: flex; align-items: flex-start; gap: 14px; font-size: 16px; line-height: 1.6; }
@@ -545,22 +569,33 @@
       </div>
     </div>
 
-    <div class="solution-grid">
-      <div class="solution-card">
-        <div class="solution-card__icon">🎯</div>
-        <div class="solution-card__title">Produto de alta demanda sazonal</div>
-        <div class="solution-card__text">Dia das Mães, Dia dos Namorados, Natal — datas em que as pessoas pagam bem por presentes bonitos e diferentes.</div>
+    <div class="varejo-card">
+      <div class="varejo-card__header">
+        <span class="varejo-card__icon">📦</span>
+        <div class="varejo-card__title">Produto de varejo, não de atacado</div>
       </div>
-      <div class="solution-card">
-        <div class="solution-card__icon">🔁</div>
-        <div class="solution-card__title">Uma técnica que você repete sempre</div>
-        <div class="solution-card__text">Com o método certo, cada buquê sai igual ao anterior. Você aprende uma vez e transforma isso em rotina produtiva.</div>
+      <p class="varejo-card__belief">Artesanato bom leva tempo. Você já sabe disso.<br>Então a pergunta certa não é <em>"quanto vendo?"</em> — é <em>"quanto ganho por peça?"</em></p>
+      <div class="varejo-contrast">
+        <div class="varejo-contrast__col varejo-contrast__col--bad">
+          <div class="varejo-contrast__label">Atacado</div>
+          <ul>
+            <li>30 peças vendidas</li>
+            <li>R$10 cada</li>
+            <li>= R$300 no dia</li>
+            <li>Horas esgotando</li>
+          </ul>
+        </div>
+        <div class="varejo-contrast__col varejo-contrast__col--good">
+          <div class="varejo-contrast__label">Varejo</div>
+          <ul>
+            <li>3 buquês vendidos</li>
+            <li>R$150 cada</li>
+            <li>= R$450 no dia</li>
+            <li>Fim de semana sobrando</li>
+          </ul>
+        </div>
       </div>
-      <div class="solution-card">
-        <div class="solution-card__icon">📦</div>
-        <div class="solution-card__title">Produto de varejo, não de atacado</div>
-        <div class="solution-card__text">Você não precisa vender volume. Um buquê bem precificado vale mais do que dez peças baratas.</div>
-      </div>
+      <p class="varejo-card__closing">Quem compra buquê não procura o mais barato — procura o mais bonito. Isso muda tudo.</p>
     </div>
   </div>
 </section>
