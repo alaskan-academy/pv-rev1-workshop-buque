@@ -37,6 +37,7 @@ async function sendToMeta(eventName, eventId, userData, customData) {
       user_data: userData,
       custom_data: customData,
     }],
+    ...(process.env.META_TEST_EVENT_CODE && { test_event_code: process.env.META_TEST_EVENT_CODE }),
   };
 
   const res = await fetch(`${META_API_URL}?access_token=${process.env.META_ACCESS_TOKEN}`, {
