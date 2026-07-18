@@ -146,6 +146,16 @@
       if (!el) return;
       if (!el.href.includes('checkout.payt.com.br')) return;
 
+      // Passa fbp e fbc na URL do checkout para a Payt incluir no webhook
+      try {
+        var url = new URL(el.href);
+        var fbpVal = getCookie('_fbp');
+        var fbcVal = getFbc();
+        if (fbpVal) url.searchParams.set('fbp', fbpVal);
+        if (fbcVal) url.searchParams.set('fbc', fbcVal);
+        el.href = url.toString();
+      } catch (e) {}
+
       fireEvent('InitiateCheckout', generateId(), {
         content_ids: [CONFIG.productId],
         content_name: CONFIG.productName,

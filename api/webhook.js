@@ -65,6 +65,10 @@ module.exports = async function handler(req, res) {
   const utms = payload.origin?.query_params || {};
   const userData = buildUserData(customer);
 
+  // fbp e fbc passados pela URL do checkout → Payt inclui em origin.query_params
+  if (utms.fbp) userData.fbp = utms.fbp;
+  if (utms.fbc) userData.fbc = utms.fbc;
+
   try {
     if (payload.status === 'paid') {
       const value = transaction.total_price ? transaction.total_price / 100 : 0;
