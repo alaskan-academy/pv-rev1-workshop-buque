@@ -8,7 +8,7 @@ module.exports = async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).end();
 
-  const { eventName, eventId, fbp, fbc, pageUrl } = req.body || {};
+  const { eventName, eventId, fbp, fbc, pageUrl, value } = req.body || {};
   if (!eventName || !eventId) return res.status(400).json({ error: 'Missing required fields' });
 
   const ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.socket?.remoteAddress;
@@ -23,7 +23,7 @@ module.exports = async function handler(req, res) {
 
   const customData = {
     currency: 'BRL',
-    value: parseFloat(process.env.PRODUCT_VALUE || '0'),
+    value: parseFloat(value || 0),
     content_ids: [process.env.PRODUCT_ID],
     content_name: process.env.PRODUCT_NAME,
     content_type: 'product',

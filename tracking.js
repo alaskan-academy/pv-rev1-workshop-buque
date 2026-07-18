@@ -56,6 +56,7 @@
       fbp: fbpVal,
       fbc: fbcVal,
       pageUrl: window.location.href,
+      value: CONFIG.productValue,
     });
 
     if (navigator.sendBeacon) {
@@ -89,7 +90,7 @@
 
     var fbpVal = getCookie('_fbp');
     var fbcVal = getFbc();
-    var body = JSON.stringify({ eventName: 'PageView', eventId: pvId, fbp: fbpVal, fbc: fbcVal, pageUrl: window.location.href });
+    var body = JSON.stringify({ eventName: 'PageView', eventId: pvId, fbp: fbpVal, fbc: fbcVal, pageUrl: window.location.href, value: CONFIG.productValue });
 
     if (navigator.sendBeacon) {
       navigator.sendBeacon('/api/track', new Blob([body], { type: 'application/json' }));

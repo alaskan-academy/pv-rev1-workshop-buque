@@ -78,13 +78,14 @@ module.exports = async function handler(req, res) {
       });
 
     } else if (payload.status === 'abandoned' || payload.status === 'waiting') {
+      const abandonedValue = product.price ? product.price / 100 : 0;
       await sendToMeta(
         'InitiateCheckout',
         payload.cart_id || payload.transaction_id,
         userData,
         {
           currency: 'BRL',
-          value: parseFloat(process.env.PRODUCT_VALUE || '0'),
+          value: abandonedValue,
           content_ids: [product.code || process.env.PRODUCT_ID],
           content_name: product.name || process.env.PRODUCT_NAME,
           content_type: 'product',
