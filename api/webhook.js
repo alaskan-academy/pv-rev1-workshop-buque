@@ -68,6 +68,7 @@ module.exports = async function handler(req, res) {
   // fbp e fbc passados pela URL do checkout → Payt inclui em origin.query_params
   if (utms.fbp) userData.fbp = utms.fbp;
   if (utms.fbc) userData.fbc = utms.fbc;
+  if (customer.email) userData.external_id = sha256(customer.email);
 
   try {
     if (payload.status === 'paid') {
