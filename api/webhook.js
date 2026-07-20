@@ -62,12 +62,17 @@ module.exports = async function handler(req, res) {
   const customer = payload.customer || {};
   const transaction = payload.transaction || {};
   const product = payload.product || {};
-  const utms = payload.origin?.query_params || {};
+  const linkQueryParams = payload.link?.query_params || {};
   const userData = buildUserData(customer);
 
-  // fbp e fbc passados pela URL do checkout → Payt inclui em origin.query_params
-  if (utms.fbp) userData.fbp = utms.fbp;
-  if (utms.fbc) userData.fbc = utms.fbc;
+  // IP do comprador vem direto no customer.ip da Payt
+  if (customer.ip) userData.client_ip_address = customer.ip;
+
+  // fbc derivado do fbclid que a Payt captura em link.query_params
+  if (linkQueryParams.fbclid) {
+    userData.fbc = `fb.1.${Date.now()}.${linkQueryParams.fbclid}`;
+  }
+
   if (customer.email) userData.external_id = sha256(customer.email);
 
   try {
@@ -83,7 +88,7 @@ module.exports = async function handler(req, res) {
         order_id: payload.transaction_id,
       });
 
-    } else if (payload.status === 'abandoned' || payload.status === 'waiting') {
+    } else if (payload.status === 'lost_cart' || payload.status === 'waiting_payment') {
       const abandonedValue = product.price ? product.price / 100 : 0;
       await sendToMeta(
         'InitiateCheckout',
