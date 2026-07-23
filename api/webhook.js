@@ -88,20 +88,24 @@ module.exports = async function handler(req, res) {
         order_id: payload.transaction_id,
       });
 
-    } else if (payload.status === 'lost_cart' || payload.status === 'waiting_payment') {
+    } else if (payload.status === 'lost_cart') {
       const abandonedValue = product.price ? product.price / 100 : 0;
-      await sendToMeta(
-        'InitiateCheckout',
-        payload.cart_id || payload.transaction_id,
-        userData,
-        {
-          currency: 'BRL',
-          value: abandonedValue,
-          content_ids: [product.code || process.env.PRODUCT_ID],
-          content_name: product.name || process.env.PRODUCT_NAME,
-          content_type: 'product',
-        }
-      );
+      await sendToMeta('InitiateCheckout', payload.cart_id || payload.transaction_id, userData, {
+        currency: 'BRL',
+        value: abandonedValue,
+        content_ids: [product.code || process.env.PRODUCT_ID],
+        content_name: product.name || process.env.PRODUCT_NAME,
+        content_type: 'product',
+      });
+    } else if (payload.status === 'waiting_payment') {
+      const pixValue = transaction.total_price ? transaction.total_price / 100 : 0;
+      await sendToMeta('AddPaymentInfo', payload.transaction_id, userData, {
+        currency: 'BRL',
+        value: pixValue,
+        content_ids: [product.code || process.env.PRODUCT_ID],
+        content_name: product.name || process.env.PRODUCT_NAME,
+        content_type: 'product',
+      });
     }
   } catch (err) {
     console.error('[webhook] CAPI error:', err.message);

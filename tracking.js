@@ -155,14 +155,6 @@
         if (fbcVal) url.searchParams.set('fbc', fbcVal);
         el.href = url.toString();
       } catch (e) {}
-
-      fireEvent('InitiateCheckout', generateId(), {
-        content_ids: [CONFIG.productId],
-        content_name: CONFIG.productName,
-        value: CONFIG.productValue,
-        currency: 'BRL',
-        num_items: 1,
-      });
     });
   }
 
